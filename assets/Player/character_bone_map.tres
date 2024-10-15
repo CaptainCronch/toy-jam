@@ -1,0 +1,8 @@
+[gd_resource type="BoneMap" load_steps=2 format=3 uid="uid://b4jrs36ra8l2p"]
+
+[ext_resource type="SkeletonProfile" uid="uid://c3jpfxjxfvopd" path="res://Assets/Player/character_skeleton_profile.tres" id="1_3fngq"]
+
+[resource]
+profile = ExtResource("1_3fngq")
+bonemap = null
+bone_map/root = &""
