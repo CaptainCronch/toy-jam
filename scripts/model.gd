@@ -4,7 +4,7 @@ extends Node3D
 @export var collider : StaticBody3D
 @export var viewport : SubViewport
 @export var spacing := 10
-@export var space_threshold := 0.1
+@export var space_threshold := 0.03
 
 var primary_color := Color.RED
 var secondary_color := Color.BLACK

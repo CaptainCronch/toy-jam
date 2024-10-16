@@ -1,4 +1,5 @@
 extends Node2D
+class_name DrawingBrush
 
 @export var texture : Texture2D
 @export var brush_size := 10

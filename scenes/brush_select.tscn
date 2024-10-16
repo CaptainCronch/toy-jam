@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc37fjwhvkehc"]
+
+[ext_resource type="Texture2D" uid="uid://27s8vidhq113" path="res://assets/brush-50.png" id="1_ndln8"]
+[ext_resource type="Script" path="res://scripts/brush_select.gd" id="2_ss6oj"]
+
+[node name="BrushSelect" type="TextureRect"]
+custom_minimum_size = Vector2(50, 50)
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource("1_ndln8")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_ss6oj")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
