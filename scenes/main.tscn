@@ -1,12 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7hj7re6jdf3o"]
+[gd_scene load_steps=45 format=3 uid="uid://b7hj7re6jdf3o"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_f4g2a"]
 [ext_resource type="PackedScene" uid="uid://dmjrvaxpo6cga" path="res://scenes/base_model.tscn" id="1_o62xr"]
 [ext_resource type="Script" path="res://scripts/spring_arm.gd" id="2_dbvhh"]
 [ext_resource type="Script" path="res://scripts/smooth_follow_transform.gd" id="2_f3r3o"]
+[ext_resource type="Shader" path="res://scripts/fresnel.gdshader" id="2_gbem7"]
 [ext_resource type="Script" path="res://scripts/drawing_brush.gd" id="3_ie5v4"]
 [ext_resource type="Script" path="res://scripts/draw_viewport.gd" id="3_kueif"]
 [ext_resource type="Texture2D" uid="uid://27s8vidhq113" path="res://assets/brush-50.png" id="5_klu0f"]
+[ext_resource type="Shader" path="res://scripts/fresnel_no_depth_test.gdshader" id="6_u4pc8"]
 [ext_resource type="Script" path="res://scripts/background_modulator.gd" id="7_4p8vg"]
 [ext_resource type="Texture2D" uid="uid://bsomf8jj3d8nh" path="res://assets/1024-64-checkers.png" id="7_ncab1"]
 [ext_resource type="Texture2D" uid="uid://bosl3wipssed1" path="res://assets/1024-128-checkers.png" id="8_na24s"]
@@ -35,15 +37,80 @@ ambient_light_energy = 0.08
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h28kf"]
-diffuse_mode = 3
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ui1q"]
+render_priority = 0
+shader = ExtResource("2_gbem7")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/quantity = 1.5
+shader_parameter/strength = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ik8jp"]
+render_priority = 0
+shader = ExtResource("6_u4pc8")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/quantity = 0.5
+shader_parameter/strength = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0u3n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0qeo"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j3krh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tmo7q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aku2b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0rff"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aeo7k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gvsuo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2o3nd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gellw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rphkc"]
+bg_color = Color(0.25, 0.25, 0.25, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hvge"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_byfy6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jaaf0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap4b5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q6cew"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1d8nu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_piji2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k550k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kyq2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apej8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4y85h"]
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_asvxr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65dgf"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3avv"]
+shading_mode = 0
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("model", "brush_list")]
 script = ExtResource("1_f4g2a")
 model = NodePath("Pedestal/Model")
-brush_list = NodePath("MarginContainer/ScrollContainer/BrushList")
+brush_list = NodePath("PaintMode/ScrollContainer/BrushList")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fc45b")
@@ -51,43 +118,44 @@ environment = SubResource("Environment_fc45b")
 [node name="DirectionalLightKey" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.44599, -0.559843, -0.698333, 0.153475, -0.720836, 0.6759, -0.881782, -0.408621, -0.235563, 0, 0, 0)
 light_energy = 0.443
-shadow_enabled = true
 sky_mode = 1
 
 [node name="DirectionalLightFill" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.336169, -0.785527, 0.519556, 0.873851, -0.0544137, 0.48314, -0.351248, 0.61643, 0.704725, 0, 0, 0)
 light_energy = 0.089
-shadow_enabled = true
 sky_mode = 1
 
 [node name="Pedestal" type="Node3D" parent="."]
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Pedestal"]
-material_override = SubResource("StandardMaterial3D_h28kf")
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Pedestal"]
+material_override = SubResource("ShaderMaterial_3ui1q")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Pedestal/CSGCombiner3D"]
 radius = 1.5
 height = 0.1
 sides = 32
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Pedestal"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Pedestal/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.106572, 0)
-material_override = SubResource("StandardMaterial3D_h28kf")
 radius = 1.4
 height = 0.1
 sides = 32
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Pedestal"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Pedestal/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20191, 0)
-material_override = SubResource("StandardMaterial3D_h28kf")
 radius = 1.3
 height = 0.1
 sides = 32
 
-[node name="Model" parent="Pedestal" node_paths=PackedStringArray("viewport") instance=ExtResource("1_o62xr")]
+[node name="Model" parent="Pedestal" node_paths=PackedStringArray("viewport", "camera", "brush_preview") instance=ExtResource("1_o62xr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.240081, 0)
-viewport = NodePath("../../SubViewport")
+viewport = NodePath("../../PaintViewport")
+camera = NodePath("../Camera3D")
+brush_preview = NodePath("../BrushPreview")
 
 [node name="Camera3D" type="Camera3D" parent="Pedestal" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1367, 0)
+current = true
 fov = 50.0
 script = ExtResource("2_f3r3o")
 target = NodePath("../VerticalRotation/SpringArm3D/Node3D")
@@ -95,26 +163,40 @@ target = NodePath("../VerticalRotation/SpringArm3D/Node3D")
 [node name="VerticalRotation" type="Node3D" parent="Pedestal"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1367, 0)
 
-[node name="SpringArm3D" type="SpringArm3D" parent="Pedestal/VerticalRotation" node_paths=PackedStringArray("target", "vertical", "camera")]
+[node name="SpringArm3D" type="SpringArm3D" parent="Pedestal/VerticalRotation" node_paths=PackedStringArray("target", "vertical", "camera", "background", "hud_camera", "hud_camera_holder")]
 collision_mask = 0
 spring_length = 3.0
 script = ExtResource("2_dbvhh")
 target = NodePath("../../Model")
 vertical = NodePath("..")
 camera = NodePath("../../Camera3D")
+background = NodePath("../../../BackgroundLayer")
+hud_camera = NodePath("../../../PaintMode/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D/CSGBox3D")
+hud_camera_holder = NodePath("../../../PaintMode/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D")
 
 [node name="Node3D" type="Node3D" parent="Pedestal/VerticalRotation/SpringArm3D"]
 
-[node name="SubViewport" type="SubViewport" parent="." node_paths=PackedStringArray("brush")]
+[node name="BrushPreview" type="CSGTorus3D" parent="Pedestal"]
+visible = false
+material_override = SubResource("ShaderMaterial_ik8jp")
+inner_radius = 0.08
+outer_radius = 0.1
+sides = 24
+ring_sides = 12
+
+[node name="PaintViewport" type="SubViewport" parent="." node_paths=PackedStringArray("brush")]
+disable_3d = true
 transparent_bg = true
 handle_input_locally = false
+canvas_item_default_texture_filter = 0
 size = Vector2i(1024, 1024)
 render_target_clear_mode = 1
 render_target_update_mode = 4
 script = ExtResource("3_kueif")
 brush = NodePath("DrawingBrush")
 
-[node name="DrawingBrush" type="Node2D" parent="SubViewport"]
+[node name="DrawingBrush" type="Node2D" parent="PaintViewport"]
+texture_filter = 1
 script = ExtResource("3_ie5v4")
 texture = ExtResource("5_klu0f")
 
@@ -128,7 +210,6 @@ parallax_small = NodePath("ParallaxSmall")
 [node name="ParallaxSmall" type="Parallax2D" parent="BackgroundLayer"]
 modulate = Color(0.0646965, 0.0646965, 0.0646965, 1)
 repeat_size = Vector2(1024, 1024)
-autoscroll = Vector2(64, -64)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundLayer/ParallaxSmall"]
@@ -138,14 +219,13 @@ centered = false
 [node name="ParallaxBig" type="Parallax2D" parent="BackgroundLayer"]
 modulate = Color(0, 0, 0, 1)
 repeat_size = Vector2(1024, 1024)
-autoscroll = Vector2(128, 128)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundLayer/ParallaxBig"]
 texture = ExtResource("8_na24s")
 centered = false
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="PaintMode" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -156,7 +236,7 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PaintMode"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -164,17 +244,17 @@ follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 0
 
-[node name="BrushList" type="HBoxContainer" parent="MarginContainer/ScrollContainer" node_paths=PackedStringArray("drawing_brush", "add_button", "file_dialog")]
+[node name="BrushList" type="HBoxContainer" parent="PaintMode/ScrollContainer" node_paths=PackedStringArray("drawing_brush", "add_button", "file_dialog")]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 10
 theme_override_constants/separation = 10
 script = ExtResource("9_amfpw")
-drawing_brush = NodePath("../../../SubViewport/DrawingBrush")
+drawing_brush = NodePath("../../../PaintViewport/DrawingBrush")
 add_button = NodePath("AddBrush")
 file_dialog = NodePath("../../../FileDialog")
 
-[node name="AddBrush" type="Button" parent="MarginContainer/ScrollContainer/BrushList"]
+[node name="AddBrush" type="Button" parent="PaintMode/ScrollContainer/BrushList"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_mode = 0
@@ -184,13 +264,13 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_e0u3n")
 text = "+"
 flat = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="BrushSizeContrainer" type="HBoxContainer" parent="PaintMode"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 alignment = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PaintMode/BrushSizeContrainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -200,7 +280,7 @@ text = "10px
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="BrushSizeSlider" type="VSlider" parent="MarginContainer/HBoxContainer" node_paths=PackedStringArray("drawing_brush", "label")]
+[node name="BrushSizeSlider" type="VSlider" parent="PaintMode/BrushSizeContrainer" node_paths=PackedStringArray("drawing_brush", "label")]
 custom_minimum_size = Vector2(30, 300)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -215,8 +295,127 @@ scrollable = false
 tick_count = 8
 ticks_on_borders = true
 script = ExtResource("12_rd60r")
-drawing_brush = NodePath("../../../SubViewport/DrawingBrush")
+drawing_brush = NodePath("../../../PaintViewport/DrawingBrush")
 label = NodePath("../Label")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PaintMode"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="PrimaryContainer" type="PanelContainer" parent="PaintMode/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0qeo")
+
+[node name="ColorPickerPrimary" type="ColorPicker" parent="PaintMode/VBoxContainer/PrimaryContainer"]
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+edit_alpha = false
+color_mode = 1
+picker_shape = 4
+
+[node name="FillPrimary" type="Button" parent="PaintMode/VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j3krh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tmo7q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_aku2b")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_p0rff")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_aeo7k")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gvsuo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2o3nd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gellw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rphkc")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8hvge")
+theme_override_styles/normal = SubResource("StyleBoxFlat_byfy6")
+text = "Bucket Fill With Primary Color"
+
+[node name="SecondaryContainer" type="PanelContainer" parent="PaintMode/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0qeo")
+
+[node name="ColorPickerSecondary" type="ColorPicker" parent="PaintMode/VBoxContainer/SecondaryContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+edit_alpha = false
+color_mode = 1
+picker_shape = 4
+
+[node name="FillSecondary" type="Button" parent="PaintMode/VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j3krh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tmo7q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_aku2b")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_p0rff")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_aeo7k")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gvsuo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2o3nd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gellw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rphkc")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8hvge")
+theme_override_styles/normal = SubResource("StyleBoxFlat_byfy6")
+text = "Bucket Fill With Secondary Color"
+
+[node name="MirrorToggle" type="CheckButton" parent="PaintMode/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jaaf0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ap4b5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q6cew")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_1d8nu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_piji2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_k550k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kyq2l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_apej8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4y85h")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_asvxr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_65dgf")
+text = "Mirror"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PaintMode"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+mouse_filter = 0
+stretch = true
+
+[node name="DisplayViewport" type="SubViewport" parent="PaintMode/SubViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="PaintMode/SubViewportContainer/DisplayViewport"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PaintMode/SubViewportContainer/DisplayViewport/Node3D"]
+material_override = SubResource("StandardMaterial3D_g3avv")
+radius = 0.1
+height = 0.25
+sides = 12
+
+[node name="Node3D" type="Node3D" parent="PaintMode/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="PaintMode/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+material_override = SubResource("StandardMaterial3D_g3avv")
+size = Vector3(0.1, 0.15, 0.2)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PaintMode/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D/CSGBox3D"]
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0, -0.17)
+material_override = SubResource("StandardMaterial3D_g3avv")
+radius = 0.08
+height = 0.15
+sides = 12
+cone = true
+
+[node name="Camera3D" type="Camera3D" parent="PaintMode/SubViewportContainer/DisplayViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1.75, 3)
+projection = 1
+size = 1.7
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a File"
@@ -229,7 +428,13 @@ file_mode = 0
 access = 2
 filters = PackedStringArray("*.png,*.jpg,*.jpeg,*.webp;")
 
-[connection signal="pressed" from="MarginContainer/ScrollContainer/BrushList/AddBrush" to="MarginContainer/ScrollContainer/BrushList" method="_on_add_brush_pressed"]
-[connection signal="value_changed" from="MarginContainer/HBoxContainer/BrushSizeSlider" to="MarginContainer/HBoxContainer/BrushSizeSlider" method="_on_value_changed"]
-[connection signal="confirmed" from="FileDialog" to="MarginContainer/ScrollContainer/BrushList" method="_on_file_dialog_confirmed"]
-[connection signal="file_selected" from="FileDialog" to="MarginContainer/ScrollContainer/BrushList" method="_on_file_dialog_file_selected"]
+[connection signal="pressed" from="PaintMode/ScrollContainer/BrushList/AddBrush" to="PaintMode/ScrollContainer/BrushList" method="_on_add_brush_pressed"]
+[connection signal="value_changed" from="PaintMode/BrushSizeContrainer/BrushSizeSlider" to="PaintMode/BrushSizeContrainer/BrushSizeSlider" method="_on_value_changed"]
+[connection signal="color_changed" from="PaintMode/VBoxContainer/PrimaryContainer/ColorPickerPrimary" to="Pedestal/Model" method="_on_color_picker_primary_color_changed"]
+[connection signal="pressed" from="PaintMode/VBoxContainer/FillPrimary" to="Pedestal/Model" method="_on_fill_primary_pressed"]
+[connection signal="color_changed" from="PaintMode/VBoxContainer/SecondaryContainer/ColorPickerSecondary" to="Pedestal/Model" method="_on_color_picker_secondary_color_changed"]
+[connection signal="pressed" from="PaintMode/VBoxContainer/FillSecondary" to="Pedestal/Model" method="_on_fill_secondary_pressed"]
+[connection signal="toggled" from="PaintMode/VBoxContainer/MirrorToggle" to="Pedestal/Model" method="_on_mirror_toggled"]
+[connection signal="gui_input" from="PaintMode/SubViewportContainer" to="Pedestal/VerticalRotation/SpringArm3D" method="_on_hud_display_gui_input"]
+[connection signal="confirmed" from="FileDialog" to="PaintMode/ScrollContainer/BrushList" method="_on_file_dialog_confirmed"]
+[connection signal="file_selected" from="FileDialog" to="PaintMode/ScrollContainer/BrushList" method="_on_file_dialog_file_selected"]
