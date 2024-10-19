@@ -7,7 +7,8 @@ var file_path : String
 
 var brush_select := preload("res://scenes/brush_select.tscn")
 
-var brushes : Array[Texture2D] = [preload("res://assets/brush-50.png"), preload("res://assets/square-50.png")]
+#var brushes : Array[Texture2D] = [preload("res://assets/brush-50.png"), preload("res://assets/square-50.png")]
+
 var primary_brush_size := 10
 var secondary_brush_size := 10
 
@@ -18,26 +19,27 @@ func _ready():
 
 func load_brushes():
 	for child in get_children():
+		#if not child.get_class() == "Button":
+			#child.queue_free()
+	#for brush in brushes:
+		#var new_brush : BrushSelect = brush_select.instantiate()
+		#new_brush.texture = brush
+		#add_child(new_brush)
+		#move_child(new_brush, -2)
 		if not child.get_class() == "Button":
-			child.queue_free()
-	for brush in brushes:
-		var new_brush : BrushSelect = brush_select.instantiate()
-		new_brush.texture = brush
-		add_child(new_brush)
-		move_child(new_brush, -2)
-		new_brush.clicked.connect(func(texture : Texture2D): drawing_brush.texture = texture)
+			child.clicked.connect(func(shape : String): drawing_brush.shape = shape)
 
 
-func _on_add_brush_pressed() -> void:
-	file_dialog.show()
-
-
-func _on_file_dialog_file_selected(path: String) -> void:
-	file_path = path
-
-
-func _on_file_dialog_confirmed() -> void:
-	var img := Image.new()
-	img.load(file_path)
-	brushes.append(ImageTexture.create_from_image(img))
-	load_brushes()
+#func _on_add_brush_pressed() -> void:
+	#file_dialog.show()
+#
+#
+#func _on_file_dialog_file_selected(path: String) -> void:
+	#file_path = path
+#
+#
+#func _on_file_dialog_confirmed() -> void:
+	#var img := Image.new()
+	#img.load(file_path)
+	#brushes.append(ImageTexture.create_from_image(img))
+	#load_brushes()

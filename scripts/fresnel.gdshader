@@ -1,4 +1,5 @@
 shader_type spatial;
+//render_mode albedo_tex_force_srgb;
 
 uniform vec3 tint : source_color = vec3(1.0, 1.0, 1.0);
 uniform float quantity = 1.5;

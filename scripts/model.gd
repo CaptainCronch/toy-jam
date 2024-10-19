@@ -13,11 +13,13 @@ var secondary_color := Color.BLACK
 var last_point = null
 var mirror := false
 var last_mirror_point = null
+var fresnel : ShaderMaterial
 
 
 func _ready() -> void:
 	UVPosition.set_mesh(mesh_instance)
 	mesh_instance.material_override.albedo_texture.viewport_path = get_path_to(viewport)
+	fresnel = mesh_instance.material_overlay
 
 
 func _process(_delta: float) -> void:
@@ -86,3 +88,8 @@ func _on_fill_secondary_pressed() -> void:
 
 func _on_mirror_toggled(toggled_on: bool) -> void:
 	mirror = toggled_on
+
+
+func _on_unshade_toggle_toggled(toggled_on: bool) -> void:
+	mesh_instance.material_override.shading_mode = StandardMaterial3D.SHADING_MODE_UNSHADED if toggled_on else StandardMaterial3D.SHADING_MODE_PER_PIXEL
+	mesh_instance.material_overlay = null if toggled_on else fresnel

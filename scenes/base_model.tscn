@@ -13,7 +13,9 @@ data = PackedVector3Array(0.0596, 1.4706, 0.1994, 0.059, 1.4292, 0.2201, 0.0502,
 resource_local_to_scene = true
 diffuse_mode = 3
 albedo_texture = SubResource("ViewportTexture_hdbma")
+albedo_texture_force_srgb = true
 texture_filter = 0
+texture_repeat = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_le1r3"]
 render_priority = 0
