@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuwdvtgebbyis"]
+
+[ext_resource type="PackedScene" uid="uid://cux20hjvo6g3w" path="res://assets/models/ears/Ears3.glb" id="1_w446r"]
+[ext_resource type="Material" uid="uid://cmoc3at821tt4" path="res://assets/resources/base_texture.tres" id="2_54gxn"]
+[ext_resource type="Material" uid="uid://fu5xyf61q6bt" path="res://assets/resources/fresnel.tres" id="3_4acwh"]
+
+[node name="Ears3" instance=ExtResource("1_w446r")]
+
+[node name="Ears_3_001" parent="." index="0"]
+material_override = ExtResource("2_54gxn")
+material_overlay = ExtResource("3_4acwh")

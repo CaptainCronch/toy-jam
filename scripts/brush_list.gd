@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-@export var drawing_brush : Node2D
+@export var model : Node3D
 @export var add_button : Button
 @export var file_dialog : FileDialog
 var file_path : String
@@ -27,7 +27,7 @@ func load_brushes():
 		#add_child(new_brush)
 		#move_child(new_brush, -2)
 		if not child.get_class() == "Button":
-			child.clicked.connect(func(shape : String): drawing_brush.shape = shape)
+			child.clicked.connect(func(shape : String): model.set_brush_type(shape))
 
 
 #func _on_add_brush_pressed() -> void:

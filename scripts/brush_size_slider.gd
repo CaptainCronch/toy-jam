@@ -1,6 +1,6 @@
 extends VSlider
 
-@export var drawing_brush : DrawingBrush
+@export var model : Node3D
 @export var label : Label
 
 
@@ -9,5 +9,5 @@ func _ready():
 
 
 func _on_value_changed(value: float) -> void:
-	drawing_brush.brush_size = value
+	model.set_brush_size(value)
 	label.text = str(value) + "px"

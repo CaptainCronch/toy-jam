@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm4162yl3maeb"]
+
+[ext_resource type="PackedScene" uid="uid://d2olj8tpoq37" path="res://assets/models/tails/Tail1.glb" id="1_fx077"]
+[ext_resource type="Material" uid="uid://cmoc3at821tt4" path="res://assets/resources/base_texture.tres" id="2_3luij"]
+[ext_resource type="Material" uid="uid://fu5xyf61q6bt" path="res://assets/resources/fresnel.tres" id="3_wspb0"]
+
+[node name="Tail1" instance=ExtResource("1_fx077")]
+
+[node name="Tail_1_001" parent="." index="0"]
+material_override = ExtResource("2_3luij")
+material_overlay = ExtResource("3_wspb0")

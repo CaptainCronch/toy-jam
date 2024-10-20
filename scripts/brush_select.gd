@@ -9,3 +9,4 @@ signal clicked(shape : String)
 func _on_gui_input(event: InputEvent) -> void:
 	if event.button_mask == 1:
 		clicked.emit(shape)
+		get_node("/root/Main/Deejay").select.play()

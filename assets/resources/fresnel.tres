@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://fu5xyf61q6bt"]
+
+[ext_resource type="Shader" path="res://scripts/fresnel.gdshader" id="1_yv7r1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_yv7r1")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/quantity = 1.5
+shader_parameter/strength = 0.5

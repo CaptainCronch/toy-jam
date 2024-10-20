@@ -20,7 +20,9 @@ var cam_lock := false
 @export var hud_camera : Node3D
 @export var hud_camera_holder : Node3D
 
-func _process(delta) -> void:
+@onready var deejay : Deejay = get_node("/root/Main/Deejay")
+
+func _process(_delta) -> void:
 	hud_camera_holder.global_rotation = camera.global_rotation
 	hud_camera.position = Vector3(camera.h_offset * 0.2, camera.v_offset * 0.2, hud_camera.position.z)
 	background.speed_multiplier = (inverse_lerp(min_spring_length, max_spring_length, spring_length) * 2) - 1
@@ -35,19 +37,23 @@ func _process(delta) -> void:
 
 
 func _unhandled_input(event : InputEvent) -> void:
-	if event.is_action_released("zoom_in"):
-		spring_length = clampf(spring_length - zoom_sensitivity * get_process_delta_time(), min_spring_length, max_spring_length)
-	if event.is_action_released("zoom_out"):
-		spring_length = clampf(spring_length + zoom_sensitivity * get_process_delta_time(), min_spring_length, max_spring_length)
-
 	if event is InputEventMouseMotion and event.button_mask == 4:
 		if event.shift_pressed:
+			deejay.play_if_not_playing(deejay.twist)
 			camera.v_offset = clampf(camera.v_offset + (event.relative.y * pan_sensitivity), -max_offset, max_offset)
 			camera.h_offset = clampf(camera.h_offset + (-event.relative.x * pan_sensitivity), -max_offset, max_offset)
 		else:
+			deejay.play_if_not_playing(deejay.pitch)
 			vertical.rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
 			rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 			rotation.x = clampf(rotation.x, deg_to_rad(-80), deg_to_rad(80))
+	else:
+		if event.is_action_released("zoom_in"):
+			deejay.play_if_not_playing(deejay.zoom)
+			spring_length = clampf(spring_length - zoom_sensitivity * get_process_delta_time(), min_spring_length, max_spring_length)
+		if event.is_action_released("zoom_out"):
+			deejay.play_if_not_playing(deejay.zoom)
+			spring_length = clampf(spring_length + zoom_sensitivity * get_process_delta_time(), min_spring_length, max_spring_length)
 
 
 func _on_hud_display_gui_input(event: InputEvent) -> void:
@@ -57,3 +63,4 @@ func _on_hud_display_gui_input(event: InputEvent) -> void:
 		rotation.x = 0
 		camera.h_offset = 0
 		camera.v_offset = 0
+		deejay.chirp_low.play()

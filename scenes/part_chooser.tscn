@@ -1,0 +1,94 @@
+[gd_scene load_steps=24 format=3 uid="uid://dfv6qxtwekhvw"]
+
+[ext_resource type="Script" path="res://scripts/part_chooser.gd" id="1_2nk4g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmyi4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n25v1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0h2n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqkxm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ldr58"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aqr2b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_guhf0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgwv5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syabs"]
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ol430"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eaw5x"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3lh2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tqxyt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_osfpb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8k2nw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_llsph"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjt6p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_foalg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fvfga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dprmv"]
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vh42o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xeytv"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="PartChooser" type="HBoxContainer"]
+alignment = 1
+script = ExtResource("1_2nk4g")
+
+[node name="Previous" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mmyi4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_n25v1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n0h2n")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jqkxm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ldr58")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_aqr2b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_guhf0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_sgwv5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_syabs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ol430")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eaw5x")
+text = "  <  "
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "awesome!!!!!!!!!"
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n3lh2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tqxyt")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_osfpb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8k2nw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_llsph")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_yjt6p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_foalg")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_fvfga")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dprmv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vh42o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xeytv")
+text = "  >  "
+
+[connection signal="button_down" from="Previous" to="." method="_on_previous_button_down"]
+[connection signal="button_down" from="Next" to="." method="_on_next_button_down"]

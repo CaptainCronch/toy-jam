@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkkw4jmedkqvv"]
+
+[ext_resource type="PackedScene" uid="uid://dad6v4sjaq57l" path="res://assets/models/snout.glb" id="1_j6m06"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1ul22"]
+viewport_path = NodePath("Pedestal/PainterContainer/FurryBase/PaintViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4f1lk"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_1ul22")
+texture_filter = 0
+
+[node name="Snout" instance=ExtResource("1_j6m06")]
+
+[node name="Snout" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_4f1lk")

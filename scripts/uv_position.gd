@@ -1,4 +1,5 @@
 extends Node
+class_name UVPosition
 
 var meshtool
 var mesh
@@ -78,6 +79,7 @@ func get_uv_coords(point, normal, transform = true) -> Variant :
 	transform_vertex_to_global = transform
 
 	var face = get_face(point, normal)
+
 	if face.size() == 0:
 		return null
 

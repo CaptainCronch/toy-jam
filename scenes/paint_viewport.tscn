@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://br7pmhd5dh3qm"]
+
+[ext_resource type="Script" path="res://scripts/draw_viewport.gd" id="1_wf40f"]
+[ext_resource type="Script" path="res://scripts/drawing_brush.gd" id="2_j2fsi"]
+
+[node name="PaintViewport" type="SubViewport" node_paths=PackedStringArray("brush")]
+disable_3d = true
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(1024, 1024)
+render_target_clear_mode = 1
+render_target_update_mode = 4
+script = ExtResource("1_wf40f")
+brush = NodePath("DrawingBrush")
+
+[node name="DrawingBrush" type="Node2D" parent="."]
+texture_filter = 1
+script = ExtResource("2_j2fsi")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://i0adny7kqmo"]
+
+[ext_resource type="PackedScene" uid="uid://2ldscwg6pfil" path="res://assets/models/fur/Fur3.glb" id="1_siok6"]
+[ext_resource type="Material" uid="uid://cmoc3at821tt4" path="res://assets/resources/base_texture.tres" id="2_315cx"]
+[ext_resource type="Material" uid="uid://fu5xyf61q6bt" path="res://assets/resources/fresnel.tres" id="3_e4qtl"]
+
+[node name="Fur3" instance=ExtResource("1_siok6")]
+
+[node name="Fur_3_001" parent="." index="0"]
+material_override = ExtResource("2_315cx")
+material_overlay = ExtResource("3_e4qtl")

@@ -1,20 +1,94 @@
-[gd_scene load_steps=46 format=3 uid="uid://b7hj7re6jdf3o"]
+[gd_scene load_steps=93 format=3 uid="uid://b7hj7re6jdf3o"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_f4g2a"]
-[ext_resource type="PackedScene" uid="uid://dmjrvaxpo6cga" path="res://scenes/base_model.tscn" id="1_o62xr"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_07wjk"]
+[ext_resource type="Script" path="res://scripts/deejay.gd" id="1_kn2x3"]
+[ext_resource type="Script" path="res://scripts/painter_container.gd" id="2_aomij"]
 [ext_resource type="Script" path="res://scripts/spring_arm.gd" id="2_dbvhh"]
 [ext_resource type="Script" path="res://scripts/smooth_follow_transform.gd" id="2_f3r3o"]
 [ext_resource type="Shader" path="res://scripts/fresnel.gdshader" id="2_gbem7"]
-[ext_resource type="Script" path="res://scripts/drawing_brush.gd" id="3_ie5v4"]
-[ext_resource type="Script" path="res://scripts/draw_viewport.gd" id="3_kueif"]
+[ext_resource type="AudioStream" uid="uid://c6ruikvjxcy3p" path="res://assets/sfx/paint_static.ogg" id="3_d8k34"]
+[ext_resource type="PackedScene" uid="uid://xgg7c4stklbf" path="res://scenes/furry_base.tscn" id="3_hl15d"]
+[ext_resource type="PackedScene" uid="uid://c0gici5iqx6gb" path="res://scenes/models/ears/ears_1.tscn" id="4_fbkee"]
+[ext_resource type="PackedScene" uid="uid://br7pmhd5dh3qm" path="res://scenes/paint_viewport.tscn" id="4_srof0"]
+[ext_resource type="AudioStream" uid="uid://cvsmtys4qebs1" path="res://assets/sfx/paint_speed.ogg" id="4_ucxla"]
+[ext_resource type="Script" path="res://scripts/model_draw.gd" id="5_vduoh"]
+[ext_resource type="AudioStream" uid="uid://dxcojf7jr3k80" path="res://assets/music/editmode.ogg" id="5_yfikr"]
+[ext_resource type="AudioStream" uid="uid://npuukwqt5udd" path="res://assets/music/blue.ogg" id="6_0pxtl"]
+[ext_resource type="PackedScene" uid="uid://cu7vdrghgwaad" path="res://scenes/models/ears/ears_2.tscn" id="6_2syie"]
+[ext_resource type="AudioStream" uid="uid://btd16td83kk7x" path="res://assets/music/viewmode.ogg" id="6_d0ebm"]
 [ext_resource type="Shader" path="res://scripts/fresnel_no_depth_test.gdshader" id="6_u4pc8"]
 [ext_resource type="Script" path="res://scripts/background_modulator.gd" id="7_4p8vg"]
-[ext_resource type="Texture2D" uid="uid://bsomf8jj3d8nh" path="res://assets/1024-64-checkers.png" id="7_ncab1"]
-[ext_resource type="Texture2D" uid="uid://bosl3wipssed1" path="res://assets/1024-128-checkers.png" id="8_na24s"]
+[ext_resource type="Texture2D" uid="uid://bsomf8jj3d8nh" path="res://assets/images/1024-64-checkers.png" id="7_ncab1"]
+[ext_resource type="AudioStream" uid="uid://3c7wllifaad2" path="res://assets/music/green.ogg" id="7_qn4an"]
+[ext_resource type="PackedScene" uid="uid://cuwdvtgebbyis" path="res://scenes/models/ears/ears_3.tscn" id="7_ydal7"]
+[ext_resource type="PackedScene" uid="uid://cirhh74d66orf" path="res://scenes/models/ears/ears_4.tscn" id="8_3c2jy"]
+[ext_resource type="AudioStream" uid="uid://b0wim4mcf4qvq" path="res://assets/music/purple.ogg" id="8_6183j"]
+[ext_resource type="Texture2D" uid="uid://bosl3wipssed1" path="res://assets/images/1024-128-checkers.png" id="8_na24s"]
+[ext_resource type="AudioStream" uid="uid://bu16bdynhvtmf" path="res://assets/music/red.ogg" id="9_4st24"]
 [ext_resource type="Script" path="res://scripts/brush_list.gd" id="9_amfpw"]
+[ext_resource type="PackedScene" uid="uid://bec8vsdwkxjfh" path="res://scenes/models/ears/ears_5.tscn" id="9_q0xov"]
+[ext_resource type="AudioStream" uid="uid://crsad3tmjaon" path="res://assets/music/yellow.ogg" id="10_ecw4p"]
+[ext_resource type="PackedScene" uid="uid://clkuimbe5hef8" path="res://scenes/models/ears/ears_6.tscn" id="10_fw5cd"]
+[ext_resource type="PackedScene" uid="uid://buf6umlqtd0hy" path="res://scenes/models/ears/ears_7.tscn" id="11_4it8b"]
+[ext_resource type="AudioStream" uid="uid://thnt5rjsvt2f" path="res://assets/sfx/camera_pitch.ogg" id="11_lv8sv"]
+[ext_resource type="AudioStream" uid="uid://dmcmmgvupmhjk" path="res://assets/sfx/camera_twist.ogg" id="12_bceku"]
+[ext_resource type="PackedScene" uid="uid://dgbis7dvvjhme" path="res://scenes/models/fur/fur_1.tscn" id="12_ev862"]
 [ext_resource type="Script" path="res://scripts/brush_size_slider.gd" id="12_rd60r"]
+[ext_resource type="AudioStream" uid="uid://cdv06ctqf4oh6" path="res://assets/sfx/camera_zoom.ogg" id="13_23ok7"]
 [ext_resource type="PackedScene" uid="uid://dc37fjwhvkehc" path="res://scenes/brush_select.tscn" id="13_kqmct"]
-[ext_resource type="Texture2D" uid="uid://frangmv3qo1q" path="res://assets/square-50.png" id="14_5ifgq"]
+[ext_resource type="PackedScene" uid="uid://ccj4wmxgipvw" path="res://scenes/models/fur/fur_2.tscn" id="13_l6kx2"]
+[ext_resource type="AudioStream" uid="uid://cv1e2qktga4ta" path="res://assets/sfx/chirp_low.ogg" id="14_4gjd3"]
+[ext_resource type="Texture2D" uid="uid://frangmv3qo1q" path="res://assets/images/square-50.png" id="14_5ifgq"]
+[ext_resource type="PackedScene" uid="uid://i0adny7kqmo" path="res://scenes/models/fur/fur_3.tscn" id="14_f85eg"]
+[ext_resource type="PackedScene" uid="uid://pbq7pmesi1ih" path="res://scenes/models/horns/horns_1.tscn" id="15_6ixmh"]
+[ext_resource type="AudioStream" uid="uid://ds7iddmkje6ok" path="res://assets/sfx/chirp.ogg" id="15_j888d"]
+[ext_resource type="AudioStream" uid="uid://daqa0i1vnp06l" path="res://assets/sfx/select.ogg" id="16_3l5v7"]
+[ext_resource type="PackedScene" uid="uid://c1gfe0xxtl630" path="res://scenes/models/horns/horns_2.tscn" id="16_vtxi7"]
+[ext_resource type="PackedScene" uid="uid://dsnhhsqp4cmq2" path="res://scenes/models/horns/horns_3.tscn" id="17_my6dq"]
+[ext_resource type="AudioStream" uid="uid://kenihbdnc024" path="res://assets/sfx/slider_down.ogg" id="17_nnms2"]
+[ext_resource type="PackedScene" uid="uid://jjo628v6b3m5" path="res://scenes/models/horns/horns_4.tscn" id="18_8h78m"]
+[ext_resource type="AudioStream" uid="uid://byicobkyxc7d0" path="res://assets/sfx/slider_up.ogg" id="18_206nh"]
+[ext_resource type="PackedScene" uid="uid://b0psqjssch37b" path="res://scenes/models/horns/horns_5.tscn" id="19_ffq1q"]
+[ext_resource type="PackedScene" uid="uid://4ic4r56rvvtc" path="res://scenes/models/horns/horns_6.tscn" id="20_qpq6d"]
+[ext_resource type="PackedScene" uid="uid://dm4162yl3maeb" path="res://scenes/models/tails/tail_1.tscn" id="21_fp124"]
+[ext_resource type="PackedScene" uid="uid://buq2lr8jia1xy" path="res://scenes/models/ears/ears_8.tscn" id="22_6eioa"]
+[ext_resource type="PackedScene" uid="uid://d3y7f11ra45b0" path="res://scenes/models/tails/tail_2.tscn" id="22_7hu5l"]
+[ext_resource type="PackedScene" uid="uid://bs27vfb4e6p4l" path="res://scenes/models/tails/tail_3.tscn" id="23_rud43"]
+[ext_resource type="PackedScene" uid="uid://ryqln8aumlom" path="res://scenes/models/tails/tail_4.tscn" id="24_rwst0"]
+[ext_resource type="PackedScene" uid="uid://bv2vpdngf31kq" path="res://scenes/models/eyes.tscn" id="25_3y8bm"]
+[ext_resource type="PackedScene" uid="uid://bkkw4jmedkqvv" path="res://scenes/models/snout.tscn" id="26_h2isj"]
+[ext_resource type="PackedScene" uid="uid://dfv6qxtwekhvw" path="res://scenes/part_chooser.tscn" id="36_a1j2x"]
+[ext_resource type="Script" path="res://scripts/reset_blend_shapes.gd" id="38_kuq8a"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_2pev6"]
+clip_count = 2
+clip_0/name = &"edit"
+clip_0/stream = ExtResource("5_yfikr")
+clip_0/auto_advance = 0
+clip_1/name = &"view"
+clip_1/stream = ExtResource("6_d0ebm")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 2,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+}
+}
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ttaxr"]
+stream_count = 5
+stream_0/stream = ExtResource("6_0pxtl")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("7_qn4an")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("8_6183j")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("9_4st24")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("10_ecw4p")
+stream_4/volume = 0.0
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qkwo0"]
 sky_top_color = Color(0, 0.25, 0.145833, 1)
@@ -105,13 +179,80 @@ bg_color = Color(0.25098, 0.25098, 0.25098, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65dgf"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tdde"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3avv"]
 shading_mode = 0
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("model", "brush_list")]
-script = ExtResource("1_f4g2a")
-model = NodePath("Pedestal/Model")
-brush_list = NodePath("PaintMode/ScrollContainer/BrushList")
+[node name="Main" type="Node3D" node_paths=PackedStringArray("deejay")]
+script = ExtResource("1_07wjk")
+deejay = NodePath("Deejay")
+
+[node name="Deejay" type="Node3D" parent="." node_paths=PackedStringArray("paint", "paint_speed", "paint_timer", "music", "color_player", "pitch", "twist", "zoom", "chirp_low", "chirp_high", "select", "slider_down", "slider_up")]
+script = ExtResource("1_kn2x3")
+paint = NodePath("Paint")
+paint_speed = NodePath("PaintSpeed")
+paint_timer = NodePath("Paint/Timer")
+music = NodePath("Music")
+color_player = NodePath("Colors")
+pitch = NodePath("CameraPitch")
+twist = NodePath("CameraTwist")
+zoom = NodePath("CameraZoom")
+chirp_low = NodePath("ChirpLow")
+chirp_high = NodePath("ChirpHigh")
+select = NodePath("Select")
+slider_down = NodePath("SliderDown")
+slider_up = NodePath("SliderUp")
+
+[node name="Paint" type="AudioStreamPlayer" parent="Deejay"]
+stream = ExtResource("3_d8k34")
+volume_db = -3.0
+parameters/looping = true
+
+[node name="Timer" type="Timer" parent="Deejay/Paint"]
+wait_time = 0.1
+one_shot = true
+
+[node name="PaintSpeed" type="AudioStreamPlayer" parent="Deejay"]
+stream = ExtResource("4_ucxla")
+bus = &"Pitch"
+parameters/looping = true
+
+[node name="Music" type="AudioStreamPlayer" parent="Deejay"]
+stream = SubResource("AudioStreamInteractive_2pev6")
+autoplay = true
+
+[node name="Colors" type="AudioStreamPlayer" parent="Deejay"]
+stream = SubResource("AudioStreamSynchronized_ttaxr")
+autoplay = true
+
+[node name="CameraPitch" type="AudioStreamPlayer" parent="Deejay"]
+stream = ExtResource("11_lv8sv")
+volume_db = -3.0
+
+[node name="CameraTwist" type="AudioStreamPlayer" parent="Deejay"]
+stream = ExtResource("12_bceku")
+volume_db = -3.0
+
+[node name="CameraZoom" type="AudioStreamPlayer" parent="Deejay"]
+stream = ExtResource("13_23ok7")
+volume_db = -3.0
+
+[node name="ChirpLow" type="AudioStreamPlayer" parent="Deejay"]
+stream = ExtResource("14_4gjd3")
+
+[node name="ChirpHigh" type="AudioStreamPlayer" parent="Deejay"]
+stream = ExtResource("15_j888d")
+
+[node name="Select" type="AudioStreamPlayer" parent="Deejay"]
+stream = ExtResource("16_3l5v7")
+
+[node name="SliderDown" type="AudioStreamPlayer" parent="Deejay"]
+stream = ExtResource("17_nnms2")
+
+[node name="SliderUp" type="AudioStreamPlayer" parent="Deejay"]
+stream = ExtResource("18_206nh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fc45b")
@@ -128,10 +269,146 @@ sky_mode = 1
 
 [node name="Pedestal" type="Node3D" parent="."]
 
+[node name="PainterContainer" type="Node3D" parent="Pedestal" node_paths=PackedStringArray("ears", "fur", "horns", "tails", "base", "eyes", "snout", "ui")]
+script = ExtResource("2_aomij")
+ears = [NodePath("Ears/Ears1"), NodePath("Ears/Ears2"), NodePath("Ears/Ears3"), NodePath("Ears/Ears4"), NodePath("Ears/Ears5"), NodePath("Ears/Ears6"), NodePath("Ears/Ears7"), NodePath("Ears/Ears8")]
+fur = [NodePath("Fur/Fur1"), NodePath("Fur/Fur2"), NodePath("Fur/Fur3")]
+horns = [NodePath("Horns/Horns1"), NodePath("Horns/Horns2"), NodePath("Horns/Horns3"), NodePath("Horns/Horns4"), NodePath("Horns/Horns5"), NodePath("Horns/Horns6")]
+tails = [NodePath("Tails/Tail1"), NodePath("Tails/Tail2"), NodePath("Tails/Tail3"), NodePath("Tails/Tail4")]
+base = NodePath("FurryBase")
+eyes = NodePath("Eyes")
+snout = NodePath("Snout")
+ui = NodePath("../../PaintMode")
+
+[node name="FurryBase" parent="Pedestal/PainterContainer" node_paths=PackedStringArray("viewport") instance=ExtResource("3_hl15d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250042, 0)
+viewport = NodePath("PaintViewport")
+
+[node name="PaintViewport" parent="Pedestal/PainterContainer/FurryBase" instance=ExtResource("4_srof0")]
+
+[node name="Ears" type="Node3D" parent="Pedestal/PainterContainer"]
+
+[node name="PaintViewport" parent="Pedestal/PainterContainer/Ears" instance=ExtResource("4_srof0")]
+texture_size = 256
+
+[node name="Ears1" parent="Pedestal/PainterContainer/Ears" node_paths=PackedStringArray("viewport") instance=ExtResource("4_fbkee")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Ears2" parent="Pedestal/PainterContainer/Ears" node_paths=PackedStringArray("viewport") instance=ExtResource("6_2syie")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Ears3" parent="Pedestal/PainterContainer/Ears" node_paths=PackedStringArray("viewport") instance=ExtResource("7_ydal7")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Ears4" parent="Pedestal/PainterContainer/Ears" node_paths=PackedStringArray("viewport") instance=ExtResource("8_3c2jy")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Ears5" parent="Pedestal/PainterContainer/Ears" node_paths=PackedStringArray("viewport") instance=ExtResource("9_q0xov")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Ears6" parent="Pedestal/PainterContainer/Ears" node_paths=PackedStringArray("viewport") instance=ExtResource("10_fw5cd")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Ears7" parent="Pedestal/PainterContainer/Ears" node_paths=PackedStringArray("viewport") instance=ExtResource("11_4it8b")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Ears8" parent="Pedestal/PainterContainer/Ears" node_paths=PackedStringArray("viewport") instance=ExtResource("22_6eioa")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Fur" type="Node3D" parent="Pedestal/PainterContainer"]
+
+[node name="PaintViewport" parent="Pedestal/PainterContainer/Fur" instance=ExtResource("4_srof0")]
+texture_size = 256
+
+[node name="Fur1" parent="Pedestal/PainterContainer/Fur" node_paths=PackedStringArray("viewport") instance=ExtResource("12_ev862")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Fur2" parent="Pedestal/PainterContainer/Fur" node_paths=PackedStringArray("viewport") instance=ExtResource("13_l6kx2")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Fur3" parent="Pedestal/PainterContainer/Fur" node_paths=PackedStringArray("viewport") instance=ExtResource("14_f85eg")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Horns" type="Node3D" parent="Pedestal/PainterContainer"]
+
+[node name="PaintViewport" parent="Pedestal/PainterContainer/Horns" instance=ExtResource("4_srof0")]
+texture_size = 256
+
+[node name="Horns1" parent="Pedestal/PainterContainer/Horns" node_paths=PackedStringArray("viewport") instance=ExtResource("15_6ixmh")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Horns2" parent="Pedestal/PainterContainer/Horns" node_paths=PackedStringArray("viewport") instance=ExtResource("16_vtxi7")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Horns3" parent="Pedestal/PainterContainer/Horns" node_paths=PackedStringArray("viewport") instance=ExtResource("17_my6dq")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Horns4" parent="Pedestal/PainterContainer/Horns" node_paths=PackedStringArray("viewport") instance=ExtResource("18_8h78m")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Horns5" parent="Pedestal/PainterContainer/Horns" node_paths=PackedStringArray("viewport") instance=ExtResource("19_ffq1q")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Horns6" parent="Pedestal/PainterContainer/Horns" node_paths=PackedStringArray("viewport") instance=ExtResource("20_qpq6d")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Tails" type="Node3D" parent="Pedestal/PainterContainer"]
+
+[node name="PaintViewport" parent="Pedestal/PainterContainer/Tails" instance=ExtResource("4_srof0")]
+texture_size = 256
+
+[node name="Tail1" parent="Pedestal/PainterContainer/Tails" node_paths=PackedStringArray("viewport") instance=ExtResource("21_fp124")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Tail2" parent="Pedestal/PainterContainer/Tails" node_paths=PackedStringArray("viewport") instance=ExtResource("22_7hu5l")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Tail3" parent="Pedestal/PainterContainer/Tails" node_paths=PackedStringArray("viewport") instance=ExtResource("23_rud43")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Tail4" parent="Pedestal/PainterContainer/Tails" node_paths=PackedStringArray("viewport") instance=ExtResource("24_rwst0")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("../PaintViewport")
+
+[node name="Eyes" parent="Pedestal/PainterContainer" node_paths=PackedStringArray("viewport") instance=ExtResource("25_3y8bm")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("PaintViewport")
+
+[node name="PaintViewport" parent="Pedestal/PainterContainer/Eyes" instance=ExtResource("4_srof0")]
+texture_size = 128
+
+[node name="Snout" parent="Pedestal/PainterContainer" node_paths=PackedStringArray("viewport") instance=ExtResource("26_h2isj")]
+script = ExtResource("5_vduoh")
+viewport = NodePath("PaintViewport")
+
+[node name="PaintViewport" parent="Pedestal/PainterContainer/Snout" instance=ExtResource("4_srof0")]
+texture_size = 128
+
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Pedestal"]
 material_override = SubResource("ShaderMaterial_3ui1q")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Pedestal/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00862653, 0)
 radius = 1.5
 height = 0.1
 sides = 32
@@ -148,12 +425,6 @@ radius = 1.3
 height = 0.1
 sides = 32
 
-[node name="Model" parent="Pedestal" node_paths=PackedStringArray("viewport", "camera", "brush_preview") instance=ExtResource("1_o62xr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.240081, 0)
-viewport = NodePath("../../PaintViewport")
-camera = NodePath("../Camera3D")
-brush_preview = NodePath("../BrushPreview")
-
 [node name="Camera3D" type="Camera3D" parent="Pedestal" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1367, 0)
 current = true
@@ -168,12 +439,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1367, 0)
 collision_mask = 0
 spring_length = 3.0
 script = ExtResource("2_dbvhh")
-target = NodePath("../../Model")
+max_spring_length = 5.0
+target = NodePath("../../PainterContainer/FurryBase")
 vertical = NodePath("..")
 camera = NodePath("../../Camera3D")
 background = NodePath("../../../BackgroundLayer")
-hud_camera = NodePath("../../../PaintMode/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D/CSGBox3D")
-hud_camera_holder = NodePath("../../../PaintMode/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D")
+hud_camera = NodePath("../../../PaintMode/VBoxContainer/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D/CSGBox3D")
+hud_camera_holder = NodePath("../../../PaintMode/VBoxContainer/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D")
 
 [node name="Node3D" type="Node3D" parent="Pedestal/VerticalRotation/SpringArm3D"]
 
@@ -184,20 +456,6 @@ inner_radius = 0.08
 outer_radius = 0.1
 sides = 24
 ring_sides = 12
-
-[node name="PaintViewport" type="SubViewport" parent="." node_paths=PackedStringArray("brush")]
-disable_3d = true
-own_world_3d = true
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1024, 1024)
-render_target_clear_mode = 1
-render_target_update_mode = 4
-script = ExtResource("3_kueif")
-brush = NodePath("DrawingBrush")
-
-[node name="DrawingBrush" type="Node2D" parent="PaintViewport"]
-script = ExtResource("3_ie5v4")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("parallax_big", "parallax_small")]
 layer = -1
@@ -243,13 +501,13 @@ follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 0
 
-[node name="BrushList" type="HBoxContainer" parent="PaintMode/ScrollContainer" node_paths=PackedStringArray("drawing_brush", "add_button", "file_dialog")]
+[node name="BrushList" type="HBoxContainer" parent="PaintMode/ScrollContainer" node_paths=PackedStringArray("model", "add_button", "file_dialog")]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 10
 theme_override_constants/separation = 10
 script = ExtResource("9_amfpw")
-drawing_brush = NodePath("../../../PaintViewport/DrawingBrush")
+model = NodePath("../../../Pedestal/PainterContainer")
 add_button = NodePath("AddBrush")
 file_dialog = NodePath("../../../FileDialog")
 
@@ -288,7 +546,7 @@ text = "10px
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="BrushSizeSlider" type="VSlider" parent="PaintMode/BrushSizeContrainer" node_paths=PackedStringArray("drawing_brush", "label")]
+[node name="BrushSizeSlider" type="VSlider" parent="PaintMode/BrushSizeContrainer" node_paths=PackedStringArray("model", "label")]
 custom_minimum_size = Vector2(30, 300)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -303,27 +561,27 @@ scrollable = false
 tick_count = 8
 ticks_on_borders = true
 script = ExtResource("12_rd60r")
-drawing_brush = NodePath("../../../PaintViewport/DrawingBrush")
+model = NodePath("../../../Pedestal/PainterContainer")
 label = NodePath("../Label")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PaintMode"]
+[node name="PaintContainer" type="VBoxContainer" parent="PaintMode"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="PrimaryContainer" type="PanelContainer" parent="PaintMode/VBoxContainer"]
+[node name="PrimaryContainer" type="PanelContainer" parent="PaintMode/PaintContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c0qeo")
 
-[node name="ColorPickerPrimary" type="ColorPicker" parent="PaintMode/VBoxContainer/PrimaryContainer"]
+[node name="ColorPickerPrimary" type="ColorPicker" parent="PaintMode/PaintContainer/PrimaryContainer"]
 layout_mode = 2
 color = Color(1, 0, 0, 1)
 edit_alpha = false
 color_mode = 1
 picker_shape = 4
 
-[node name="FillPrimary" type="Button" parent="PaintMode/VBoxContainer"]
+[node name="FillPrimary" type="Button" parent="PaintMode/PaintContainer"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j3krh")
@@ -339,18 +597,18 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8hvge")
 theme_override_styles/normal = SubResource("StyleBoxFlat_byfy6")
 text = "Bucket Fill With Primary Color"
 
-[node name="SecondaryContainer" type="PanelContainer" parent="PaintMode/VBoxContainer"]
+[node name="SecondaryContainer" type="PanelContainer" parent="PaintMode/PaintContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c0qeo")
 
-[node name="ColorPickerSecondary" type="ColorPicker" parent="PaintMode/VBoxContainer/SecondaryContainer"]
+[node name="ColorPickerSecondary" type="ColorPicker" parent="PaintMode/PaintContainer/SecondaryContainer"]
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 edit_alpha = false
 color_mode = 1
 picker_shape = 4
 
-[node name="FillSecondary" type="Button" parent="PaintMode/VBoxContainer"]
+[node name="FillSecondary" type="Button" parent="PaintMode/PaintContainer"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j3krh")
@@ -366,7 +624,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8hvge")
 theme_override_styles/normal = SubResource("StyleBoxFlat_byfy6")
 text = "Bucket Fill With Secondary Color"
 
-[node name="MirrorToggle" type="CheckButton" parent="PaintMode/VBoxContainer"]
+[node name="MirrorToggle" type="CheckButton" parent="PaintMode/PaintContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jaaf0")
@@ -382,7 +640,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_asvxr")
 theme_override_styles/normal = SubResource("StyleBoxFlat_65dgf")
 text = "Mirror"
 
-[node name="UnshadeToggle" type="CheckButton" parent="PaintMode/VBoxContainer"]
+[node name="UnshadeToggle" type="CheckButton" parent="PaintMode/PaintContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jaaf0")
@@ -398,7 +656,249 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_asvxr")
 theme_override_styles/normal = SubResource("StyleBoxFlat_65dgf")
 text = "Unshaded"
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="PaintMode"]
+[node name="EyesToggle" type="CheckButton" parent="PaintMode/PaintContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jaaf0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ap4b5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q6cew")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_1d8nu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_piji2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_k550k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kyq2l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_apej8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7tdde")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_asvxr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_65dgf")
+button_pressed = true
+text = "Toggle Eyes"
+
+[node name="SnoutToggle" type="CheckButton" parent="PaintMode/PaintContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jaaf0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ap4b5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q6cew")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_1d8nu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_piji2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_k550k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kyq2l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_apej8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7tdde")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_asvxr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_65dgf")
+button_pressed = true
+text = "Toggle Snout"
+
+[node name="EraseEyes" type="Button" parent="PaintMode/PaintContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j3krh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tmo7q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_aku2b")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_p0rff")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_aeo7k")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gvsuo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2o3nd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gellw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rphkc")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8hvge")
+theme_override_styles/normal = SubResource("StyleBoxFlat_byfy6")
+text = "Clear Eyes"
+
+[node name="EraseSnout" type="Button" parent="PaintMode/PaintContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j3krh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tmo7q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_aku2b")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_p0rff")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_aeo7k")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gvsuo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2o3nd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gellw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rphkc")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8hvge")
+theme_override_styles/normal = SubResource("StyleBoxFlat_byfy6")
+text = "Clear Snout
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PaintMode"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="BlendShapes" type="VBoxContainer" parent="PaintMode/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Customize" type="Label" parent="PaintMode/VBoxContainer/BlendShapes"]
+layout_mode = 2
+text = "Customize"
+horizontal_alignment = 1
+
+[node name="BlendBox" type="HBoxContainer" parent="PaintMode/VBoxContainer/BlendShapes"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox"]
+layout_mode = 2
+text = "Arms"
+
+[node name="Arms" type="HSlider" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -50.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="BlendBox2" type="HBoxContainer" parent="PaintMode/VBoxContainer/BlendShapes"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox2"]
+layout_mode = 2
+text = "Chest"
+
+[node name="Chest" type="HSlider" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -50.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="BlendBox3" type="HBoxContainer" parent="PaintMode/VBoxContainer/BlendShapes"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox3"]
+layout_mode = 2
+text = "Belly
+"
+
+[node name="Belly" type="HSlider" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -50.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="BlendBox4" type="HBoxContainer" parent="PaintMode/VBoxContainer/BlendShapes"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox4"]
+layout_mode = 2
+text = "Thighs"
+
+[node name="Thighs" type="HSlider" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -50.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="BlendBox5" type="HBoxContainer" parent="PaintMode/VBoxContainer/BlendShapes"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox5"]
+layout_mode = 2
+text = "Canine"
+
+[node name="Canine" type="HSlider" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -50.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="BlendBox6" type="HBoxContainer" parent="PaintMode/VBoxContainer/BlendShapes"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox6"]
+layout_mode = 2
+text = "Feline"
+
+[node name="Feline" type="HSlider" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -50.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="BlendBox7" type="HBoxContainer" parent="PaintMode/VBoxContainer/BlendShapes"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox7"]
+layout_mode = 2
+text = "Reptilian
+"
+
+[node name="Reptilian" type="HSlider" parent="PaintMode/VBoxContainer/BlendShapes/BlendBox7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -50.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="ResetBlendShapes" type="Button" parent="PaintMode/VBoxContainer/BlendShapes"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j3krh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tmo7q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_aku2b")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_p0rff")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_aeo7k")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gvsuo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2o3nd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gellw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rphkc")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8hvge")
+theme_override_styles/normal = SubResource("StyleBoxFlat_byfy6")
+text = "Reset Blend Shapes
+"
+script = ExtResource("38_kuq8a")
+
+[node name="AccessoryPicker" type="VBoxContainer" parent="PaintMode/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="PaintMode/VBoxContainer/AccessoryPicker"]
+layout_mode = 2
+text = "Accessories"
+horizontal_alignment = 1
+
+[node name="PartChooserEars" parent="PaintMode/VBoxContainer/AccessoryPicker" instance=ExtResource("36_a1j2x")]
+layout_mode = 2
+parts = Array[String](["None", "Short Pointy", "Tall Pointy", "Small Round", "Large Round", "Forward", "Droopy", "Long Floppy", "Short Floppy"])
+
+[node name="PartChooserFur" parent="PaintMode/VBoxContainer/AccessoryPicker" instance=ExtResource("36_a1j2x")]
+layout_mode = 2
+parts = Array[String](["None", "Small", "Large", "Back"])
+
+[node name="PartChooserHorns" parent="PaintMode/VBoxContainer/AccessoryPicker" instance=ExtResource("36_a1j2x")]
+layout_mode = 2
+parts = Array[String](["None", "Forward", "Tall", "Large", "Small Spiral", "Large Spiral", "Singular"])
+
+[node name="PartChooserTails" parent="PaintMode/VBoxContainer/AccessoryPicker" instance=ExtResource("36_a1j2x")]
+layout_mode = 2
+parts = Array[String](["None", "Small", "Large", "Puffy", "Long"])
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PaintMode/VBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -406,29 +906,29 @@ size_flags_vertical = 8
 mouse_filter = 0
 stretch = true
 
-[node name="DisplayViewport" type="SubViewport" parent="PaintMode/SubViewportContainer"]
+[node name="DisplayViewport" type="SubViewport" parent="PaintMode/VBoxContainer/SubViewportContainer"]
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(128, 128)
 render_target_update_mode = 4
 
-[node name="Node3D" type="Node3D" parent="PaintMode/SubViewportContainer/DisplayViewport"]
+[node name="Node3D" type="Node3D" parent="PaintMode/VBoxContainer/SubViewportContainer/DisplayViewport"]
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PaintMode/SubViewportContainer/DisplayViewport/Node3D"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PaintMode/VBoxContainer/SubViewportContainer/DisplayViewport/Node3D"]
 material_override = SubResource("StandardMaterial3D_g3avv")
 radius = 0.1
 height = 0.25
 sides = 12
 
-[node name="Node3D" type="Node3D" parent="PaintMode/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D"]
+[node name="Node3D" type="Node3D" parent="PaintMode/VBoxContainer/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="PaintMode/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="PaintMode/VBoxContainer/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 material_override = SubResource("StandardMaterial3D_g3avv")
 size = Vector3(0.1, 0.15, 0.2)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PaintMode/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D/CSGBox3D"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PaintMode/VBoxContainer/SubViewportContainer/DisplayViewport/Node3D/CSGCylinder3D/Node3D/CSGBox3D"]
 transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0, -0.17)
 material_override = SubResource("StandardMaterial3D_g3avv")
 radius = 0.08
@@ -436,7 +936,7 @@ height = 0.15
 sides = 12
 cone = true
 
-[node name="Camera3D" type="Camera3D" parent="PaintMode/SubViewportContainer/DisplayViewport/Node3D"]
+[node name="Camera3D" type="Camera3D" parent="PaintMode/VBoxContainer/SubViewportContainer/DisplayViewport/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1.75, 3)
 projection = 1
 size = 1.7
@@ -452,14 +952,33 @@ file_mode = 0
 access = 2
 filters = PackedStringArray("*.png,*.jpg,*.jpeg,*.webp;")
 
+[connection signal="timeout" from="Deejay/Paint/Timer" to="Deejay" method="_on_paint_timer_timeout"]
 [connection signal="pressed" from="PaintMode/ScrollContainer/BrushList/AddBrush" to="PaintMode/ScrollContainer/BrushList" method="_on_add_brush_pressed"]
 [connection signal="value_changed" from="PaintMode/BrushSizeContrainer/BrushSizeSlider" to="PaintMode/BrushSizeContrainer/BrushSizeSlider" method="_on_value_changed"]
-[connection signal="color_changed" from="PaintMode/VBoxContainer/PrimaryContainer/ColorPickerPrimary" to="Pedestal/Model" method="_on_color_picker_primary_color_changed"]
-[connection signal="pressed" from="PaintMode/VBoxContainer/FillPrimary" to="Pedestal/Model" method="_on_fill_primary_pressed"]
-[connection signal="color_changed" from="PaintMode/VBoxContainer/SecondaryContainer/ColorPickerSecondary" to="Pedestal/Model" method="_on_color_picker_secondary_color_changed"]
-[connection signal="pressed" from="PaintMode/VBoxContainer/FillSecondary" to="Pedestal/Model" method="_on_fill_secondary_pressed"]
-[connection signal="toggled" from="PaintMode/VBoxContainer/MirrorToggle" to="Pedestal/Model" method="_on_mirror_toggled"]
-[connection signal="toggled" from="PaintMode/VBoxContainer/UnshadeToggle" to="Pedestal/Model" method="_on_unshade_toggle_toggled"]
-[connection signal="gui_input" from="PaintMode/SubViewportContainer" to="Pedestal/VerticalRotation/SpringArm3D" method="_on_hud_display_gui_input"]
+[connection signal="color_changed" from="PaintMode/PaintContainer/PrimaryContainer/ColorPickerPrimary" to="Deejay" method="_on_color_picker_primary_color_changed"]
+[connection signal="color_changed" from="PaintMode/PaintContainer/PrimaryContainer/ColorPickerPrimary" to="Pedestal/PainterContainer" method="_on_color_picker_primary_color_changed"]
+[connection signal="pressed" from="PaintMode/PaintContainer/FillPrimary" to="Pedestal/PainterContainer" method="_on_fill_primary_pressed"]
+[connection signal="color_changed" from="PaintMode/PaintContainer/SecondaryContainer/ColorPickerSecondary" to="Deejay" method="_on_color_picker_secondary_color_changed"]
+[connection signal="color_changed" from="PaintMode/PaintContainer/SecondaryContainer/ColorPickerSecondary" to="Pedestal/PainterContainer" method="_on_color_picker_secondary_color_changed"]
+[connection signal="pressed" from="PaintMode/PaintContainer/FillSecondary" to="Pedestal/PainterContainer" method="_on_fill_secondary_pressed"]
+[connection signal="toggled" from="PaintMode/PaintContainer/MirrorToggle" to="Pedestal/PainterContainer" method="_on_mirror_toggle_toggled"]
+[connection signal="toggled" from="PaintMode/PaintContainer/UnshadeToggle" to="Pedestal/PainterContainer" method="_on_unshade_toggle_toggled"]
+[connection signal="toggled" from="PaintMode/PaintContainer/EyesToggle" to="Pedestal/PainterContainer" method="_on_eyes_toggle_toggled"]
+[connection signal="toggled" from="PaintMode/PaintContainer/SnoutToggle" to="Pedestal/PainterContainer" method="_on_snout_toggle_toggled"]
+[connection signal="pressed" from="PaintMode/PaintContainer/EraseEyes" to="Pedestal/PainterContainer" method="_on_erase_eyes_pressed"]
+[connection signal="pressed" from="PaintMode/PaintContainer/EraseSnout" to="Pedestal/PainterContainer" method="_on_erase_snout_pressed"]
+[connection signal="value_changed" from="PaintMode/VBoxContainer/BlendShapes/BlendBox/Arms" to="Pedestal/PainterContainer" method="_on_arms_value_changed"]
+[connection signal="value_changed" from="PaintMode/VBoxContainer/BlendShapes/BlendBox2/Chest" to="Pedestal/PainterContainer" method="_on_chest_value_changed"]
+[connection signal="value_changed" from="PaintMode/VBoxContainer/BlendShapes/BlendBox3/Belly" to="Pedestal/PainterContainer" method="_on_belly_value_changed"]
+[connection signal="value_changed" from="PaintMode/VBoxContainer/BlendShapes/BlendBox4/Thighs" to="Pedestal/PainterContainer" method="_on_thighs_value_changed"]
+[connection signal="value_changed" from="PaintMode/VBoxContainer/BlendShapes/BlendBox5/Canine" to="Pedestal/PainterContainer" method="_on_canine_value_changed"]
+[connection signal="value_changed" from="PaintMode/VBoxContainer/BlendShapes/BlendBox6/Feline" to="Pedestal/PainterContainer" method="_on_feline_value_changed"]
+[connection signal="value_changed" from="PaintMode/VBoxContainer/BlendShapes/BlendBox7/Reptilian" to="Pedestal/PainterContainer" method="_on_reptilian_value_changed"]
+[connection signal="pressed" from="PaintMode/VBoxContainer/BlendShapes/ResetBlendShapes" to="PaintMode/VBoxContainer/BlendShapes/ResetBlendShapes" method="_on_pressed"]
+[connection signal="part_changed" from="PaintMode/VBoxContainer/AccessoryPicker/PartChooserEars" to="Pedestal/PainterContainer" method="_on_part_chooser_ears_part_changed"]
+[connection signal="part_changed" from="PaintMode/VBoxContainer/AccessoryPicker/PartChooserFur" to="Pedestal/PainterContainer" method="_on_part_chooser_fur_part_changed"]
+[connection signal="part_changed" from="PaintMode/VBoxContainer/AccessoryPicker/PartChooserHorns" to="Pedestal/PainterContainer" method="_on_part_chooser_horns_part_changed"]
+[connection signal="part_changed" from="PaintMode/VBoxContainer/AccessoryPicker/PartChooserTails" to="Pedestal/PainterContainer" method="_on_part_chooser_tails_part_changed"]
+[connection signal="gui_input" from="PaintMode/VBoxContainer/SubViewportContainer" to="Pedestal/VerticalRotation/SpringArm3D" method="_on_hud_display_gui_input"]
 [connection signal="confirmed" from="FileDialog" to="PaintMode/ScrollContainer/BrushList" method="_on_file_dialog_confirmed"]
 [connection signal="file_selected" from="FileDialog" to="PaintMode/ScrollContainer/BrushList" method="_on_file_dialog_file_selected"]

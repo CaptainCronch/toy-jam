@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv2vpdngf31kq"]
+
+[ext_resource type="PackedScene" uid="uid://btshjd3rvdl4y" path="res://assets/models/eyes.glb" id="1_mirdj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1ul22"]
+viewport_path = NodePath("Pedestal/PainterContainer/FurryBase/PaintViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5cil"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_1ul22")
+texture_filter = 0
+
+[node name="Eyes" instance=ExtResource("1_mirdj")]
+
+[node name="Eyes" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_o5cil")

@@ -130,8 +130,6 @@ func cube(box : BoxShape3D, color = Color.WHITE_SMOKE, persist_ms = 0):
 
 func interpolated_line(p0 : Vector2, p1 : Vector2, resolution : int) -> PackedVector2Array: ## Returns array of points
 	var points : PackedVector2Array = []
-	var dx := p1.x - p0.x
-	var dy := p1.y - p0.y
 	for i in resolution:
 		var t := float(i) / float(resolution)
 		var point := Vector2(lerpf(p0[0], p1[0], t), lerpf(p0[1], p1[1], t))

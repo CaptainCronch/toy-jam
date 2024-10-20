@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0psqjssch37b"]
+
+[ext_resource type="PackedScene" uid="uid://djmrgbchdb0r5" path="res://assets/models/horns/Horns5.glb" id="1_78y11"]
+[ext_resource type="Material" uid="uid://cmoc3at821tt4" path="res://assets/resources/base_texture.tres" id="2_wio3d"]
+[ext_resource type="Material" uid="uid://fu5xyf61q6bt" path="res://assets/resources/fresnel.tres" id="3_grhkj"]
+
+[node name="Horns5" instance=ExtResource("1_78y11")]
+
+[node name="Horns_5_001" parent="." index="0"]
+material_override = ExtResource("2_wio3d")
+material_overlay = ExtResource("3_grhkj")
