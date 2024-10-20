@@ -2,19 +2,19 @@ extends Node
 
 
 func _ready():
-	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-	Engine.max_fps = 60
+	#DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+	#Engine.max_fps = 60
 	Input.use_accumulated_input = false
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	#get_window().mode = Window.MODE_FULLSCREEN
 
 
 func _process(_delta):
-	if Input.is_action_just_pressed("debug_key"):
-		if Engine.max_fps == 60:
-			Engine.max_fps = 0
-		elif Engine.max_fps == 0:
-			Engine.max_fps = 60
+	#if Input.is_action_just_pressed("debug_key"):
+		#if Engine.max_fps == 60:
+			#Engine.max_fps = 0
+		#elif Engine.max_fps == 0:
+			#Engine.max_fps = 60
 
 	if Input.is_action_just_pressed("escape"):
 		get_tree().quit() # temporary for testing
