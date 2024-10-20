@@ -8,7 +8,7 @@ extends SpringArm3D
 @export var offset_speed := 0.1
 @export var default_spring_length := 3
 @export var max_spring_length := 8.0
-@export var min_spring_length := 0.5
+@export var min_spring_length := 0.25
 
 var cam_lock := false
 

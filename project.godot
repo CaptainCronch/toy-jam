@@ -13,7 +13,8 @@ config_version=5
 config/name="FURRY PAINTER 20XX"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon3.png"
+config/windows_native_icon="res://assets/icon3_02Q_icon.ico"
 
 [autoload]
 

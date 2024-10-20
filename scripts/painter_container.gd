@@ -34,7 +34,7 @@ func _ready() -> void:
 	for accessory in tails:
 		accessory.reparent((base.hip_anchor))
 		accessory.transform = Transform3D()
-		accessory.translate(Vector3(0, 0, -0.11))
+		accessory.translate(Vector3(0, 0, -0.105))
 		#accessory.rotate_x(deg_to_rad(-90))
 		#accessory.rotate_y(deg_to_rad(180))
 
